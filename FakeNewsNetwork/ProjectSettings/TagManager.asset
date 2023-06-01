@@ -3,12 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PC
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - 3DEnv
   - Water
   - UI
   - 
