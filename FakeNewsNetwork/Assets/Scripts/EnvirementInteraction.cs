@@ -42,18 +42,20 @@ public class EnvirementInteraction : MonoBehaviour
         {
             ZoomingIn();
         }
-        if (_isZoomedIn == true || _isZoomingOut == true)
+        if (_isZoomingOut == true && _isZoomedIn == true)
         {
             ZoomingOut();
-            if (Input.GetMouseButtonDown(1) && _isZooming == false)
-            {
-                _isZoomingOut = true;
-                ZoomingOut();
-            }
+
+        }
+        if (Input.GetMouseButtonDown(1) && _isZooming == false && _isZoomedIn == true)
+        {
+            _isZoomingOut = true;
+            ZoomingOut();
         }
     }
     public void ZoomingIn()
     {
+
         closeInDirection = Vector3.Normalize(Camera.main.transform.position - cameraCloseInPosition);
         closeInLookDirection = Vector3.Normalize(Camera.main.transform.eulerAngles - cameraCloseInLookRotation);
         Debug.Log(closeInDirection);
@@ -73,7 +75,7 @@ public class EnvirementInteraction : MonoBehaviour
         Debug.Log(closeInDirection);
         Camera.main.transform.position -= (cameraCloseOutDirection * positionSpeed) * Time.deltaTime;
         Camera.main.transform.eulerAngles -= (cameraCloseOutLookDirection * rotationSpeed) * Time.deltaTime;
-        if (Camera.main.transform.position.z < -1.53)
+        if (Camera.main.transform.position.z < -1.52)
         {
             _isZoomingOut = false;
             _isZoomedIn = false;
