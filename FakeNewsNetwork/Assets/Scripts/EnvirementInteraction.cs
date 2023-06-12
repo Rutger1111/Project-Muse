@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class EnvirementInteraction : MonoBehaviour
 {
+    [SerializeField] private float time;
+    [SerializeField] private bool HasDone;
     private Ray ray;
     private RaycastHit hit;
     [SerializeField] private LayerMask layerMask;
@@ -62,9 +64,32 @@ public class EnvirementInteraction : MonoBehaviour
 
         closeInDirection = Vector3.Normalize(Camera.main.transform.position - cameraCloseInPosition);
         closeInLookDirection = Vector3.Normalize(Camera.main.transform.eulerAngles - cameraCloseInLookRotation);
+
         Debug.Log(closeInDirection);
-        Camera.main.transform.position -= (closeInDirection * positionSpeed) * Time.deltaTime;
-        Camera.main.transform.eulerAngles -= (closeInLookDirection * rotationSpeed) * Time.deltaTime;
+
+
+        if (HasDone)
+        {
+            Camera.main.transform.position -= (closeInDirection * positionSpeed) * Time.deltaTime;
+        }
+        else
+        {
+            if (Camera.main.transform.eulerAngles.x < 1)
+            {
+                closeInLookDirection = new Vector3(0, closeInLookDirection.y, 0);
+            }
+
+            if (Camera.main.transform.eulerAngles.y < 41 && Camera.main.transform.eulerAngles.y > 39)
+            {
+                closeInLookDirection = new Vector3(closeInLookDirection.x, 0, 0);
+            }
+
+            if ((closeInLookDirection.y == 0 && (closeInLookDirection.x == 0)))
+            {
+                HasDone = true;
+            }
+            Camera.main.transform.eulerAngles -= (closeInLookDirection * rotationSpeed) * Time.deltaTime;
+        }
         if (Vector3.Distance(Camera.main.transform.position, cameraCloseInPosition) <= 0.007)
         {
             _isZooming = false;
@@ -83,6 +108,7 @@ public class EnvirementInteraction : MonoBehaviour
         {
             _isZoomingOut = false;
             _isZoomedIn = false;
+            HasDone = false;
             Camera.main.transform.position = cameraCloseOutPosition;
             Camera.main.transform.eulerAngles = cameraCloseOutLookRotation;
         }
