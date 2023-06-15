@@ -25,12 +25,13 @@ public class LookAround : MonoBehaviour
     public void lookAround(float rotationSpeed)
     {
         var afloat = Camera.main.transform.eulerAngles.y;
-        if (Camera.main.transform.eulerAngles.y >= 340 || Camera.main.transform.eulerAngles.y <= 20)
+        print(rotationSpeed);
+        if (Camera.main.transform.eulerAngles.y >= 20 && Camera.main.transform.eulerAngles.y <=  60)
         {
             Camera.main.transform.eulerAngles -= new Vector3(0, rotationSpeed * Time.deltaTime, 0);
         }
 
-        var rotationY = (Camera.main.transform.eulerAngles.y !>= 340 || Camera.main.transform.eulerAngles.y !<= 20) ? (Camera.main.transform.eulerAngles.y) : (Camera.main.transform.eulerAngles.y <= 340 && Camera.main.transform.eulerAngles.y >= 160 ? 340.1f : 19.9f);
+        var rotationY = (Camera.main.transform.eulerAngles.y !>= 20 && Camera.main.transform.eulerAngles.y !<= 60) ? (Camera.main.transform.eulerAngles.y) : (Camera.main.transform.eulerAngles.y <= 20 ? 20.1f : 59.9f);
         Camera.main.transform.eulerAngles = new Vector3 (Camera.main.transform.eulerAngles.x, rotationY, Camera.main.transform.eulerAngles.z);
     }
 }
