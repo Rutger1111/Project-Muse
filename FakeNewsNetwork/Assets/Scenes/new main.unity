@@ -1828,8 +1828,8 @@ MonoBehaviour:
   _isZooming: 0
   _isZoomingOut: 0
   _isZoomedIn: 0
-  cameraCloseInPosition: {x: 0.34, y: 0.58, z: -0.075}
-  cameraCloseOutPosition: {x: -1.97, y: 1.57, z: 3.598}
+  cameraCloseInPosition: {x: 0.109, y: 0.826, z: -0.372}
+  cameraCloseOutPosition: {x: -1.099, y: 1.399, z: -1.74}
   cameraCloseInLookRotation: {x: 15, y: 39.999996, z: 0}
   cameraCloseOutLookRotation: {x: 14.999997, y: 40, z: 0}
   cameraCloseOutLookDirection: {x: 15, y: 39.999996, z: 0}
