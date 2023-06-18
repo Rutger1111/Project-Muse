@@ -25,7 +25,7 @@ public class LookAround : MonoBehaviour
     public void lookAround(float rotationSpeed)
     {
         var afloat = Camera.main.transform.eulerAngles.y;
-        print(rotationSpeed);
+//        print(rotationSpeed);
         if (Camera.main.transform.eulerAngles.y >= 20 && Camera.main.transform.eulerAngles.y <=  60)
         {
             Camera.main.transform.eulerAngles -= new Vector3(0, rotationSpeed * Time.deltaTime, 0);
