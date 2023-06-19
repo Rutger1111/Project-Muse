@@ -55,8 +55,8 @@ public class TextClickable : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layermask))
         {
-            print(whatTitle + "werkt");
-            if (hit.collider.tag == "Title2" && (hit.collider.tag == "Title2" && whatTitle == whatTitles))
+            print(whatTitles + "werkt");
+            if (hit.collider.tag == "Title2" && (( whatTitle == 0)))
             {
                 whatTitle = 1;
                 print("werkt" + textmeshpro.text);
@@ -64,7 +64,7 @@ public class TextClickable : MonoBehaviour
 
                 print("werkt" + hit.collider.GetComponent<TextMeshPro>().text);
             }
-            else if (hit.collider.tag == "Title2" && (hit.collider.tag == "Title2" && whatTitle == whatTitles + 1))
+            else if (hit.collider.tag == "Title2" && (( whatTitle == 1)))
             {
                 print(textmeshpro.text);
                 textmeshpro.text = titles[whatTitles];
@@ -76,14 +76,14 @@ public class TextClickable : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layermask))
         {
             print(whatTitle + "werkt");
-            if (hit.collider.tag == "Image2" && (hit.collider.tag == "Image2" && whatImage == whatTitles))
+            if (hit.collider.tag == "Image2" && (whatImage == 0))
             {
                 whatImage = 1;
                 print("werkt" + image.sprite);
                 image.sprite = pictures[whatTitles + whatImage];
                 print("werkt" + image.sprite);
             }
-            else if (hit.collider.tag == "Image2" && (hit.collider.tag == "Image2" && whatImage == whatTitles + 1))
+            else if (hit.collider.tag == "Image2" && (whatImage == 1))
             {
                 whatImage = 0;
                 print(image.sprite);

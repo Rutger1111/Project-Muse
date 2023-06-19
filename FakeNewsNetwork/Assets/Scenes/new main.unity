@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a322cefdce38b46a531eca9f608063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderValue: 11
+  sliderValue: 8
 --- !u!1 &495308802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,8 +2776,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2a19c9dfbff8cc742a03835ed19704bc, type: 3}
   - {fileID: 21300000, guid: 4f0ad02dbdc561f4a8888c24ac1f5065, type: 3}
   - {fileID: 21300000, guid: 9291e67dbcf190c4eb567743df0e479c, type: 3}
-  - {fileID: 21300000, guid: 9291e67dbcf190c4eb567743df0e479c, type: 3}
-  whatTitles: 0
+  - {fileID: 21300000, guid: 321ab6f93d8ef50489f0b7942fd28f86, type: 3}
+  whatTitles: 5
   whatTitle: 0
   whatImage: 0
   layermask:
