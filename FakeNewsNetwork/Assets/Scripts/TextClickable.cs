@@ -19,7 +19,6 @@ public class TextClickable : MonoBehaviour
     [Header("Title")]
     public GameObject title1;
     public GameObject title2;
-
     [Header("Image")]
     public GameObject image1;
     public GameObject image2;
@@ -38,7 +37,7 @@ public class TextClickable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
+
     }
     public void sended()
     {
@@ -46,9 +45,10 @@ public class TextClickable : MonoBehaviour
         whatTitles += 2;
         if (whatTitle >= 6)
         {
-            whatTitle -= 1;
+            whatTitle = 0;
         }
-        title2.GetComponent<TextMesh>().text = titles[whatTitle + 1];
+        textmeshpro.text = titles[whatTitle];
+        image.sprite = pictures[whatTitles];
     }
     private void OnMouseDown()
     {
@@ -56,7 +56,7 @@ public class TextClickable : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layermask))
         {
             print(whatTitles + "werkt");
-            if (hit.collider.tag == "Title2" && (( whatTitle == 0)))
+            if (hit.collider.tag == "Title2" && ((whatTitle == 0)))
             {
                 whatTitle = 1;
                 print("werkt" + textmeshpro.text);
@@ -64,7 +64,7 @@ public class TextClickable : MonoBehaviour
 
                 print("werkt" + hit.collider.GetComponent<TextMeshPro>().text);
             }
-            else if (hit.collider.tag == "Title2" && (( whatTitle == 1)))
+            else if (hit.collider.tag == "Title2" && ((whatTitle == 1)))
             {
                 print(textmeshpro.text);
                 textmeshpro.text = titles[whatTitles];
@@ -72,7 +72,7 @@ public class TextClickable : MonoBehaviour
                 print("werkt" + textmeshpro.text);
             }
         }
-        
+
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layermask))
         {
             print(whatTitle + "werkt");
@@ -91,6 +91,12 @@ public class TextClickable : MonoBehaviour
                 print("werkt" + image.sprite);
             }
         }
-        
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layermask))
+        {
+            if (hit.collider.tag == "Confirm")
+            {
+                sended();
+            }
+        }
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Title1
   - PC
   - Image2
+  - Confirm
   layers:
   - Default
   - TransparentFX
