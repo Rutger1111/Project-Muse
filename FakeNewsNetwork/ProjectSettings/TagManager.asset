@@ -7,6 +7,7 @@ TagManager:
   - Title2
   - Title1
   - PC
+  - Image2
   layers:
   - Default
   - TransparentFX

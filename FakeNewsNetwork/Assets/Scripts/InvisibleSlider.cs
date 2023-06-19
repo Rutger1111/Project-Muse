@@ -9,6 +9,7 @@ public class InvisibleSlider : MonoBehaviour
     private void Awake()
     {
         _scenarioTrigger = this.GetComponent<ScenarioTrigger>();
+        SliderCalculator();
     }
 
     public void CheckValue(int addedValue)
