@@ -48,7 +48,6 @@ public class TextClickable : MonoBehaviour
     {
         var titlesValue = 0;
         var picturesValue = 0;
-        var fullValue = titlesValues[titlesValue] + picturesValues[picturesValue];
         if (whatTitles == 0)
         {
             titlesValue = whatTitle;
@@ -56,10 +55,10 @@ public class TextClickable : MonoBehaviour
         }
         else
         {
-            titlesValue = whatTitle == 0 ? whatTitles * 2 + 1 : whatTitles * 2 + 2;
-            picturesValue = whatImage == 0 ? whatTitles * 2 + 1 : whatTitles * 2 + 2;
+            titlesValue = whatTitle == 0 ? whatTitles / 2 + 1 : whatTitles / 2 + 2;
+            picturesValue = whatImage == 0 ? whatTitles / 2 + 1 : whatTitles / 2 + 2;
         }
-
+        var fullValue = titlesValues[titlesValue] + picturesValues[picturesValue];
         whatTitle = 0;
 
         if (whatTitles + 2 > 5)
