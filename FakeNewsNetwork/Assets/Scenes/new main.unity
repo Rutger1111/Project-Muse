@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a322cefdce38b46a531eca9f608063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderValue: 11
+  sliderValue: 7
 --- !u!1 &530413775
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,7 +2853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f73f67852c3f34fb1ec2dcb39769f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenarioSystem: {fileID: 0}
+  scenarioSystem: {fileID: 485691024}
   textmeshpro: {fileID: 156856123}
   image: {fileID: 1030820436}
   titles:
