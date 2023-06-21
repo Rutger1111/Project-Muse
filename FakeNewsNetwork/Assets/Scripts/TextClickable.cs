@@ -42,13 +42,18 @@ public class TextClickable : MonoBehaviour
     public void sended()
     {
         whatTitle = 0;
-        whatTitles += 2;
-        if (whatTitle >= 6)
+
+        if (whatTitles + 2 > 5)
         {
-            whatTitle = 0;
+            whatTitles = 0;
         }
-        textmeshpro.text = titles[whatTitle];
-        image.sprite = pictures[whatTitles];
+        else
+        {
+            whatTitles += 2;
+            textmeshpro.text = titles[whatTitle];
+            image.sprite = pictures[whatTitles];
+
+        }
     }
     private void OnMouseDown()
     {
@@ -67,7 +72,12 @@ public class TextClickable : MonoBehaviour
             else if (hit.collider.tag == "Title2" && ((whatTitle == 1)))
             {
                 print(textmeshpro.text);
-                textmeshpro.text = titles[whatTitles];
+                if (whatTitles == 4)
+                {
+                    textmeshpro.text = "ai museum";
+                }
+                else
+                    textmeshpro.text = titles[whatTitles];
                 whatTitle = 0;
                 print("werkt" + textmeshpro.text);
             }
