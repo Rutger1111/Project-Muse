@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class TextClickable : MonoBehaviour
 {
+    public AudioLowPassFilter lowpass;
     private InvisibleSlider _invisibleSlider;
     [SerializeField] private GameObject scenarioSystem;
     public TextMeshPro textmeshpro;
@@ -48,6 +49,7 @@ public class TextClickable : MonoBehaviour
     {
         var titlesValue = 0;
         var picturesValue = 0;
+        bool isZero = false;
         if (whatTitles == 0)
         {
             titlesValue = whatTitle;
@@ -64,14 +66,22 @@ public class TextClickable : MonoBehaviour
         if (whatTitles + 2 > 5)
         {
             whatTitles = 0;
-        }
-        else
-        {
-            whatTitles += 2;
-            textmeshpro.text = titles[whatTitle];
+            isZero = true;
+            textmeshpro.text = titles[whatTitles];
             image.sprite = pictures[whatTitles];
         }
-       _invisibleSlider.CheckValue(fullValue); 
+        if (isZero == false)
+        {
+            whatTitles += 2;
+            textmeshpro.text = titles[whatTitles];
+            image.sprite = pictures[whatTitles];
+        }
+        _invisibleSlider.CheckValue(fullValue);
+        lowpass.cutoffFrequency = 22000 - (22000 / 15 * _invisibleSlider.sliderValue);
+        if(lowpass.cutoffFrequency == 10)
+        {
+            lowpass.cutoffFrequency = 22000 / 15;
+        }
     }
     private void OnMouseDown()
     {

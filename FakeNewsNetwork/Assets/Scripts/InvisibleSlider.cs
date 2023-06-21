@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class InvisibleSlider : MonoBehaviour
 {
     private ScenarioTrigger _scenarioTrigger;
-    [SerializeField] private int sliderValue;
+    [SerializeField] public int sliderValue;
     private void Awake()
     {
         _scenarioTrigger = this.GetComponent<ScenarioTrigger>();
