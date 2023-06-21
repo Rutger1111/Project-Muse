@@ -7,10 +7,14 @@ using UnityEngine.UI;
 
 public class TextClickable : MonoBehaviour
 {
+    private InvisibleSlider _invisibleSlider;
+    [SerializeField] private GameObject scenarioSystem;
     public TextMeshPro textmeshpro;
     public SpriteRenderer image;
     public List<string> titles;
+    [SerializeField] private List<int> titlesValues;
     public List<Sprite> pictures;
+    [SerializeField] private List<int> picturesValues;
     public int whatTitles;
     public int whatTitle;
     public int whatImage;
@@ -25,13 +29,14 @@ public class TextClickable : MonoBehaviour
 
     [Header("Lists")]
     public string[] titlesList;
-
-
+    
+    
     // Start is called before the first frame update
     void Start()
     {
         title1 = GameObject.FindGameObjectWithTag("Title1");
         title2 = GameObject.FindGameObjectWithTag("Title2");
+        _invisibleSlider = scenarioSystem.GetComponent<InvisibleSlider>();
     }
 
     // Update is called once per frame
@@ -41,6 +46,20 @@ public class TextClickable : MonoBehaviour
     }
     public void sended()
     {
+        var titlesValue = 0;
+        var picturesValue = 0;
+        var fullValue = titlesValues[titlesValue] + picturesValues[picturesValue];
+        if (whatTitles == 0)
+        {
+            titlesValue = whatTitle;
+            picturesValue = whatImage;
+        }
+        else
+        {
+            titlesValue = whatTitle == 0 ? whatTitles * 2 + 1 : whatTitles * 2 + 2;
+            picturesValue = whatImage == 0 ? whatTitles * 2 + 1 : whatTitles * 2 + 2;
+        }
+
         whatTitle = 0;
 
         if (whatTitles + 2 > 5)
@@ -52,8 +71,8 @@ public class TextClickable : MonoBehaviour
             whatTitles += 2;
             textmeshpro.text = titles[whatTitle];
             image.sprite = pictures[whatTitles];
-
         }
+       _invisibleSlider.CheckValue(fullValue); 
     }
     private void OnMouseDown()
     {
